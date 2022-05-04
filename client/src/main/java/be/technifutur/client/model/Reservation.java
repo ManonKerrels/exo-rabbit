@@ -17,7 +17,7 @@ public class Reservation {
     private Date depart;
     private Status status;
 
-    public static enum Status{
+    public enum Status{
         DEMANDE,
         FACTURE
     }
