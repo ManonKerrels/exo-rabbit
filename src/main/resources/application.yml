@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    host: localhost #adresses IP de ceux qui sont dans le projet
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:h2:mem:rabbitDB
+    username: user
+    password: pass
