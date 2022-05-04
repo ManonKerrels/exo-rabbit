@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,8 +14,8 @@ import java.util.UUID;
 public class Reservation {
 
     private UUID reference;
-    private Date arrive;
-    private Date depart;
+    private LocalDate arrive;
+    private LocalDate depart;
     private Status status;
 
     public enum Status{

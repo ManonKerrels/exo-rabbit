@@ -6,6 +6,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -26,8 +27,8 @@ public class RabbitSender implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         Reservation r = new Reservation(
                 UUID.randomUUID(),
-                new Date(),
-                new Date(),
+                LocalDate.of(2020, 05, 04),
+                LocalDate.of(2020, 05, 05),
                 Reservation.Status.DEMANDE
         );
 

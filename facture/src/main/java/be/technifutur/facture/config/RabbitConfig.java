@@ -1,5 +1,7 @@
 package be.technifutur.facture.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
@@ -15,6 +17,11 @@ public class RabbitConfig {
     @Bean
     public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory){
         return new RabbitAdmin(connectionFactory);
+    }
+
+    @Bean
+    public ObjectMapper objectMapper(){
+        return new ObjectMapper().registerModule(new JavaTimeModule());
     }
 
     @Bean("reserv_queue")
