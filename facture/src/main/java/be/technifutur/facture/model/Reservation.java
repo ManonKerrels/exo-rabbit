@@ -14,8 +14,8 @@ import java.util.UUID;
 public class Reservation {
 
     private UUID reference;
-    private LocalDate arrive;
-    private LocalDate depart;
+    private Date arrive;
+    private Date depart;
     private Status status;
 
     public static enum Status{

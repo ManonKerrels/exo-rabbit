@@ -12,6 +12,11 @@ import org.springframework.stereotype.Component;
 public class RabbitEcouteur {
 
     private final Logger logger = LoggerFactory.getLogger(RabbitEcouteur.class);
+    private final ObjectMapper mapper;
+
+    public RabbitEcouteur(ObjectMapper mapper) {
+        this.mapper = mapper;
+    }
 
     @RabbitListener(queues = "fact_queue")
     public void receiveFacture(String message) throws JsonProcessingException {

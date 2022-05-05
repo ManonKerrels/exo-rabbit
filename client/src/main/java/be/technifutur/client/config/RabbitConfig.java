@@ -21,11 +21,11 @@ public class RabbitConfig {
         return new RabbitAdmin(connectionFactory);
     }
 
-    //permet de configurer les dates pour utiliser le LocalDate (et pas juste Date)
-    @Bean
-    public ObjectMapper objectMapper(){
-        return new ObjectMapper().registerModule(new JavaTimeModule());
-    }
+//    //permet de configurer les dates pour utiliser le LocalDate (et pas juste Date)
+//    @Bean
+//    public ObjectMapper objectMapper(){
+//        return new ObjectMapper().registerModule(new JavaTimeModule());
+//    }
 
     //queue sur la réservation
     @Bean("reserv_queue") //par défaut, son nom de Bean est le nom de la méthode

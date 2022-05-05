@@ -1,10 +1,10 @@
-package be.technifutur.client.model;
+package be.technifutur.api.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
@@ -13,14 +13,11 @@ import java.util.UUID;
 public class Reservation {
 
     private UUID reference;
-    private Date arrive;
-    private Date depart;
+    private LocalDate arrive;
+    private LocalDate depart;
     private Status status;
 
-    public Reservation(Date arrive, Date depart) {
-    }
-
-    public enum Status{
+    public static enum Status{
         DEMANDE,
         FACTURE
     }

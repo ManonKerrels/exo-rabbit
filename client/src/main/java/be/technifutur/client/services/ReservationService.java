@@ -7,9 +7,11 @@ import java.util.UUID;
 
 public interface ReservationService {
 
-    Reservation create();
+    Reservation create(Reservation map);
 
     Reservation setToFacture(UUID ref);
 
     List<Reservation> getReservFactures();
+
+    Reservation getReservByRef(UUID ref);
 }
