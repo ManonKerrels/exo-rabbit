@@ -24,13 +24,23 @@ public class RabbitEcouteur {
         this.mapper = mapper;
     }
 
+//    @RabbitListener(queues = "reserv_queue")
+//    public void receiveReservation(String message) throws JsonProcessingException {
+//        ObjectMapper mapper = new ObjectMapper();
+//        Reservation r = mapper.readValue(message, Reservation.class);
+//        logger.info("RESERVATION RECEIVED - "+ r);
+//        this.service.createFacture(
+//                (int) ChronoUnit.DAYS.between((Temporal) r.getArrive(), (Temporal) r.getDepart())*20,
+//                r.getReference()
+//                );
+//    }
+
     @RabbitListener(queues = "reserv_queue")
     public void receiveReservation(String message) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
         Reservation r = mapper.readValue(message, Reservation.class);
-        logger.info("RESERVATION RECEIVED - "+ r);
+        logger.info("BOOKING RECEIVED - " + r);
         this.service.createFacture(
-                (int) ChronoUnit.DAYS.between((Temporal) r.getArrive(), (Temporal) r.getDepart())*20,
+                (int)ChronoUnit.DAYS.between(r.getArrive(), r.getDepart())*10,
                 r.getReference()
                 );
     }

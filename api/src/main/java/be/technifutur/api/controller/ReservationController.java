@@ -14,7 +14,7 @@ public class ReservationController {
     private final RestTemplate restTemplate;
     private final String baseURL = "http://localhost:8181/reserv";
 
-    public ReservationController(RestTemplate restTemplate, String baseURL) {
+    public ReservationController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
