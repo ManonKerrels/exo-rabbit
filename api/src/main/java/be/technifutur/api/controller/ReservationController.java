@@ -1,6 +1,7 @@
 package be.technifutur.api.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +20,7 @@ public class ReservationController {
     }
 
     //réserver
+//    @PreAuthorize("isAuthenticated()")
     @PostMapping
     public ResponseEntity<?> askForReserv(@RequestBody Map<String, String> request){
         System.out.println(request);
@@ -27,12 +29,14 @@ public class ReservationController {
     }
 
     //liste des réservations facturées
+//    @PreAuthorize("isAuthenticated()")
     @GetMapping("/fact")
     public ResponseEntity<?> getReservFact() {
         return restTemplate.getForEntity(this.baseURL + "/fact", Object.class);
     }
 
     //ref selon un ID
+    @PreAuthorize("isAuthenticated()")
     @GetMapping
     public ResponseEntity<?> getReservByRef(@RequestParam(name = "ref") UUID ref){
         return restTemplate.getForEntity(this.baseURL + "/booking?ref=" + ref, Object.class);

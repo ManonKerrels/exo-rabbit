@@ -1,1 +1,6 @@
-
+application:
+  jwt:
+    secret: "Je fais souvent ce rêve étrange et pénétrant"
+    expires: 86400000
+    prefix: "Bearer "
+    header: "Authorization"
